@@ -6,7 +6,7 @@
     "dev": "next",
     "build": "next build && next export",
     "start": "next start",
-    "stage":"cross-env NODE_ENV=development next build && next export"  
+    "stage":"cross-env NODE_ENV=development next build && npm run dev"  
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
