@@ -1,8 +1,19 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, makeStyles, Button } from "@material-ui/core";
 import Head from "next/head";
 import { useEffect } from "react";
 
+const useStyles = makeStyles({
+    text: {
+        color: "#DC143C"
+    },
+    button: {
+        color: "#ffffff",
+        backgroundColor: "#80ff00"
+    }
+});
+
 export default function Home() {
+    const classes = useStyles()
     useEffect(() => {
         checkEnv();
     }, []);
@@ -13,7 +24,8 @@ export default function Home() {
     return (
         <div className="container">
             <Box>
-                <Typography>Home</Typography>
+                <Typography className={classes.text}>Home</Typography>
+                <Button className={classes.button}>Secondary</Button>
             </Box>
         </div>
     );
