@@ -1,25 +1,28 @@
 import { Box, Typography, makeStyles, Button } from "@material-ui/core";
 import Head from "next/head";
 import { useEffect } from "react";
+import { getAllAnimalsAPIcall } from "../../redux/actions/animalActions";
 
 const useStyles = makeStyles({
     text: {
-        color: "#DC143C"
+        color: "#DC143C",
     },
     button: {
         color: "#ffffff",
-        backgroundColor: "#80ff00"
-    }
+        backgroundColor: "#80ff00",
+    },
 });
 
-export default function Home() {
-    const classes = useStyles()
+const Home = ({ res }) => {
+    const classes = useStyles();
     useEffect(() => {
         checkEnv();
     }, []);
-    const checkEnv = () => {
+    const checkEnv = async () => {
         let env = process.env.NODE_ENV;
         console.log(env);
+        //const result = await getAllAnimalsAPIcall();
+        console.log(res);
     };
     return (
         <div className="container">
@@ -29,4 +32,20 @@ export default function Home() {
             </Box>
         </div>
     );
+};
+
+export async function getStaticProps(context) {
+    // Call an external API endpoint to get posts.
+    // You can use any data fetching library
+    const res = await getAllAnimalsAPIcall();
+
+    // By returning { props: { posts } }, the Blog component
+    // will receive `posts` as a prop at build time
+    return {
+        props: {
+            res: res.data,
+        },
+    };
 }
+
+export default Home;
