@@ -11,6 +11,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "autoprefixer": "^10.2.5",
+    "axios": "^0.21.1",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "error-overlay-webpack-plugin": "^0.4.2",
