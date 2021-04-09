@@ -2,8 +2,7 @@
   "name": "learn-starter",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "bundle": "webpack",
+  "scripts": {   
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start"
